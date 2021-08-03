@@ -16,7 +16,9 @@ const makeTransaction = (transaction) => {
 
     setTimeout(() => {
       if (canProcess) {
+        // resolve({ transactionId, delay });
         // resolve({ transaction, delay });
+        // resolve(transaction.id, delay);
         resolve(transaction.id);
       } else {
         reject(transaction.id);
