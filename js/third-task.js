@@ -1,25 +1,19 @@
-console.log("---------------------third task---------------------");
+console.log('---------------------third task---------------------');
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// const makeTransaction = ({ transaction }) => {
-const makeTransaction = (transaction) => {
+const makeTransaction = transaction => {
   const delay = randomIntegerFromInterval(200, 500);
 
   // промисификация функции
   return new Promise((resolve, reject) => {
     const canProcess = Math.random() > 0.3;
-    // const transactionId = transaction.id;
-    // console.log({ transactionId, delay });
 
     setTimeout(() => {
       if (canProcess) {
-        // resolve({ transactionId, delay });
-        // resolve({ transaction, delay });
-        // resolve(transaction.id, delay);
-        resolve(transaction.id);
+        resolve({ transaction, delay });
       } else {
         reject(transaction.id);
       }
@@ -27,12 +21,11 @@ const makeTransaction = (transaction) => {
   });
 };
 
-// const logSuccess = ({ id, time }) => {
-const logSuccess = (id, time) => {
-  console.log(`Transaction ${id} processed in ${time}ms`);
+const logSuccess = ({ transaction: { id }, delay }) => {
+  console.log(`Transaction ${id} processed in ${delay}ms`);
 };
 
-const logError = (id) => {
+const logError = id => {
   console.warn(`Error processing transaction ${id}. Please try again later.`);
 };
 

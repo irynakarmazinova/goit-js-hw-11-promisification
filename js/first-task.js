@@ -1,15 +1,13 @@
-console.log("---------------------first task---------------------");
+console.log('---------------------first task---------------------');
 
-const delay = (ms) => {
-  return new Promise((resolve, reject) => {
+const delay = ms =>
+  new Promise(resolve => {
     setTimeout(() => {
       resolve(ms);
-      // reject("Promise executed with an error (reject");
     }, ms);
   });
-};
 
-const logger = (time) => console.log(`Resolved after ${time}ms`);
+const logger = time => console.log(`Resolved after ${time}ms`);
 
 // Вызовы функции для проверки
 delay(2000).then(logger); // Resolved after 2000ms
