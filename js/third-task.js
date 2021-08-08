@@ -14,6 +14,8 @@ const makeTransaction = transaction => {
     setTimeout(() => {
       if (canProcess) {
         resolve({ transaction, delay });
+        // resolve({ id: transaction, delay });
+        // resolve([ transaction.id, delay ]);
       } else {
         reject(transaction.id);
       }
@@ -23,6 +25,15 @@ const makeTransaction = transaction => {
 
 const logSuccess = ({ transaction: { id }, delay }) => {
   console.log(`Transaction ${id} processed in ${delay}ms`);
+
+  // const logSuccess = ( { id , delay }) => {
+  //   console.log(`Transaction ${id} processed in ${delay}ms`);
+
+  // const logSuccess = ([id, time ]) => {
+  // console.log(`Transaction ${id} processed in ${time}ms`);
+
+  // const logSuccess = (arr) => {
+  // console.log(`Transaction ${arr[0]} processed in ${arr[1]}ms`);
 };
 
 const logError = id => {
@@ -42,3 +53,8 @@ makeTransaction({ id: 73, amount: 100 }).then(logSuccess).catch(logError);
 
 // -------------------------------------------------------------------------
 //  console.log("%c Один", "color: green; font-size: 20px"); //в консольке стилизация текста
+// -------------------------------------------------------------------------
+// деструктуризация массива
+// const a = [75, 115]
+// const [id, time] = arr;
+// console.log(id, time);
