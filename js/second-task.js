@@ -8,11 +8,14 @@ const users = [
 ];
 
 const toggleUserState = (allUsers, userName) => {
+  // const toggleUserState = async(allUsers, userName) => {
   const updatedUsers = allUsers.map(user =>
     user.name === userName ? { ...user, active: !user.active } : user,
   );
 
   // return Promise.resolve(updatedUsers);
+
+  // return updatedUsers;
 
   return new Promise(resolve => {
     resolve(updatedUsers);
